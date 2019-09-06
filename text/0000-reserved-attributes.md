@@ -15,13 +15,13 @@ Note that while this section touches on multiple intertwined problems, this OTEP
 
 ### The fine line between fields and attribute conventions
 
-Currently, a Span encapsulates nine different things, that fall into three categories:
+Currently, a Span encapsulates nine different things, that fall into these categories:
 
 * Data that identifies the Span ("primary key"): The SpanContext.
 * Data that defines the relationship of the Span with other Spans ("foreign keys"): parent Span or SpanContext, Links.
 * Data about the Span: operation name, status, start timestamp, end timestamp, Events, (other) attributes.
 
-Note that a seventh element in the last category is currently ready-to-merge in the OTEP-less [specification PR #226 "Add spankind as an option during span creation"][KindPR].
+Note that another element in the last category is currently ready-to-merge in the OTEP-less [specification PR #226 "Add spankind as an option during span creation"][KindPR], growing it to seven items.
 
 This OTEP will only consider the last category.
 
@@ -107,10 +107,11 @@ Historically, OpenTelemetry eschewed special fields (it did have name, events an
 
 On the other hand OpenCensus had a lot more attributes on the Span, which can be seen in the [Protobuf-based protocol definition][OCSpanProto]. In addition to all of the ones currently in OpenTelemetry (including SpanKind), it also had built-in support for stack traces and messages (a special kind of network event).
 
-Note that the ideas of this OTEP where briefly discussed at the Data Formats and Semantic Conventions Meeting on 8/22/2019 (see [meeting notes][datasig])
+Note that the ideas of this OTEP were briefly discussed at the Data Formats and Semantic Conventions Meeting on 8/22/2019 (see [meeting notes][datasig])
 
 [OTracSemConv]: https://github.com/opentracing/specification/blob/master/semantic_conventions.md
 [OCSpanProto]: https://github.com/census-instrumentation/opencensus-proto/blob/master/src/opencensus/proto/trace/v1/trace.proto#L41-L314
+[datasig]: https://docs.google.com/document/d/1D4a5U9nnswAo3mp35rF-q4tRKVFZ9KAAZAY4eZYwZkc/view#heading=h.88ek0il9ey47
 
 ## Open questions
 
